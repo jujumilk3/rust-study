@@ -59,6 +59,12 @@ fn main() {
     println!("{}", s3);
     // 여기서 s3는 스코프 밖으로 벗어났으며 drop이 호출됩니다. s2는 스코프 밖으로
     // 벗어났지만 이동되었으므로 아무 일도 일어나지 않습니다. s1은 스코프 밖으로 벗어나서 drop이 호출됩니다.
+
+    let s1 = String::from("hello");
+
+    let (s2, len) = calculate_length(s1);
+
+    println!("The length of '{}' is {}.", s2, len);
 }
 
 
@@ -83,3 +89,11 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string이 스코프
                                                       // 안으로 들어왔습니다.
     a_string  // a_string은 반환되고, 호출한 쪽의 함수로 이동됩니다.
 }
+
+
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len(); // len()함수는 문자열의 길이를 반환합니다.
+
+    (s, length)
+}
+
