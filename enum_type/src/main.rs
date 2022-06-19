@@ -29,6 +29,15 @@ enum Message {
     ChangeColor(i32, i32, i32),
 }
 
+impl Message {
+    fn call(&self) {
+        // 메소드 내용은 여기 정의할 수 있습니다.
+        println!("called call")
+    }
+}
+
+
+
 fn main() {
     let home = IpAddr {
         kind: IpAddrKind::V4,
@@ -47,4 +56,7 @@ fn main() {
 
     let home = IpAddr3::V4(127, 0, 0, 1);
     let loopback = IpAddr3::V6(String::from("::1"));
+
+    let m = Message::Write(String::from("hello"));
+    m.call();
 }
