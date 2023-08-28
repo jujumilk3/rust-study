@@ -14,3 +14,4 @@
 
 ## references
 1. https://rinthel.github.io/rust-lang-book-ko/foreword.html
+2. https://doc.rust-lang.org/book/
